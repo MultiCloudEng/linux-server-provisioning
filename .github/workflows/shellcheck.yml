@@ -1,0 +1,21 @@
+name: ShellCheck
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check
+        run: for f in ./*.sh; do bash -n "$f"; done
+      - name: ShellCheck (preinstalled on GitHub runners)
+        run: shellcheck --severity=style ./*.sh
+      - name: Dry run
+        run: LOG_FILE=/tmp/provision.log ./provision.sh --dry-run
