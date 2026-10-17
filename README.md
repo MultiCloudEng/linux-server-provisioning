@@ -1,4 +1,5 @@
 # Linux Server Provisioning
+> Built with AI assistance (Claude).
 
 Bash scripts that turn a fresh Ubuntu/Debian server (e.g. an AWS EC2 instance) into an nginx web server behind a UFW firewall, plus a health-check script with monitoring-friendly exit codes.
 
